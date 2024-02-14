@@ -9,6 +9,7 @@ public class Ghost : MonoBehaviour
 {
     [SerializeField] private GameObject buildPrefab;
     public int index;
+    public GameObject boxOblect;
 
     private bool readyBuild = true;
     private Color defaultColor;
@@ -17,8 +18,7 @@ public class Ghost : MonoBehaviour
     {
         defaultColor = new Color(0.66f, 1f, 1f, 0.35f);
         gameObject.GetComponent<MeshRenderer>().material.color = defaultColor;
-        
-        script = GameObject.Find("Box").GetComponent<Counter>();
+        script = boxOblect.GetComponent<Counter>();
         script.text.gameObject.SetActive(true);
     }
 

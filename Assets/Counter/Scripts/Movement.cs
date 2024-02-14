@@ -7,7 +7,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float speed = 10;
     [SerializeField] private float xBound  = 22f;
     [SerializeField] private float zBound = 9f;
-    void Update()
+    private void Update()
     {
         MoveBox();
     }
@@ -21,25 +21,20 @@ public class Movement : MonoBehaviour
         var pos = transform.position;
         if (transform.position.z > zBound)
         {
-            
             pos = new Vector3(pos.x, pos.y, zBound);
         }
-        if (transform.position.z < -zBound)
+        else if (transform.position.z < -zBound)
         {
-            
             pos = new Vector3(pos.x, pos.y, -zBound);
         }
         if (transform.position.x < -xBound)
         {
-            
             pos = new Vector3(-xBound, pos.y, pos.z);
         }
-        if (transform.position.x > xBound)
+        else if (transform.position.x > xBound)
         {
-            
             pos = new Vector3(xBound, pos.y,pos.z);
         }
-
         transform.position = pos;
     }
 }
